@@ -1,3 +1,4 @@
+[![CI](https://github.com/TastyLabs/TastyLabs/actions/workflows/ci.yml/badge.svg)](https://github.com/TastyLabs/TastyLabs/actions/workflows/ci.yml)
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/TastyLabs/TastyLabs/blob/develop/LICENSE)
 
 # TastyLabs
