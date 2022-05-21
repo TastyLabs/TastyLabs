@@ -1,5 +1,5 @@
 [![CI](https://github.com/TastyLabs/TastyLabs/actions/workflows/ci.yml/badge.svg)](https://github.com/TastyLabs/TastyLabs/actions/workflows/ci.yml)
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/TastyLabs/TastyLabs/blob/develop/LICENSE)
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/TastyLabs/TastyLabs/blob/main/LICENSE)
 
 # TastyLabs
 
@@ -7,6 +7,10 @@ TastyLabs is a community-driven open source recipe sharing platform.
 
 TastyLabs is developed by a group of students as part of their computer science classes.
 
+## Quick start
+```shell
+docker-compose up -d --build --remove-orphans
+```
 
 ## Project members
 
