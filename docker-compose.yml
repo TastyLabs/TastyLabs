@@ -1,0 +1,16 @@
+version: "3.6"
+services:
+  tastylabs:
+    build: .
+    container_name: tastylabs
+    restart: unless-stopped
+  proxy:
+    image: caddy:2-alpine
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - tastylabs
+    restart: unless-stopped
