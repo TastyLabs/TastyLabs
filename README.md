@@ -12,6 +12,9 @@ TastyLabs is developed by a group of students as part of their computer science 
 docker-compose up -d --build --remove-orphans
 ```
 
+## Credits
+- https://www.w3schools.com/html/html_responsive.asp
+
 ## Project members
 
 - [@0xMuffinbaker](https://www.github.com/0xMuffinbaker)
