@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+    font-family: monospace;
+    font-size: x-large;
+    color: black;
+}
+
+.title {
+    padding:15px;
+    height: 175px;
+    display: flex;
+    align-items: center;
+}
+
+.title img {
+    float: left;
+    vertical-align: middle;
+}
+
+.title span {
+    vertical-align: middle;
+}
+
+.title h1 {
+    font-size: xxx-large;
+}
+
+.menu {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+.menu a {
+    background-color: rgba(234, 163, 8, 0.98);
+    padding: 8px;
+    margin-top: 7px;
+    display: block;
+    width: 100%;
+    color: black;
+}
+
+.main {
+    float: left;
+    width: 60%;
+    padding: 0 20px;
+}
+
+.main h2 {
+    font-size: xx-large;
+}
+
+.footer {
+    background-color: rgba(234, 163, 8, 0.98);
+    text-align:center;
+    padding:10px;
+    margin-top:7px;
+}
+
+@media only screen and (max-width: 620px) {
+    /* For mobile phones: */
+    .menu, .main, .right {
+        width: 100%;
+    }
+}
