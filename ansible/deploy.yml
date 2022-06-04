@@ -29,15 +29,8 @@
 
     - name: Stop running containers
       shell: |
-        containers=$(docker ps -q)
-        if [ ! -z $containers ]; then
-          docker kill $containers;
-        fi
-        
-        containers=$(docker ps -a -q)
-        if [ ! -z $containers ]; then
-          docker rm $containers;
-        fi
+        docker ps -q --filter "name=tastylabs" | grep -q . && docker stop tastylabs && docker rm -fv tastylabs
+        docker ps -q --filter "name=proxy" | grep -q . && docker stop proxy && docker rm -fv proxy
 
     - name: Delete old app files
       file:
