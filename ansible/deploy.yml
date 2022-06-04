@@ -1,0 +1,23 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: Install Docker
+      shell:  curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
+
+    - name: Stop running containers
+      shell: docker kill $(docker ps -q) || docker rm $(docker ps -a -q)
+
+    - name: Delete old app files
+      file:
+        state: absent
+        path: /app
+
+    - name: Clone repository
+      git:
+        repo: https://github.com/TastyLabs/TastyLabs
+        dest: /app
+
+    - name: Start application
+      shell: cd /app && docker-compose up -d --build --remove-orphans
