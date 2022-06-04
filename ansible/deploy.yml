@@ -10,12 +10,14 @@
           - curl
         state: present
 
+    - name: Check if Docker is installed
+      command: docker --version
+      register: docker_valid
+      ignore_errors: yes
+
     - name: Install Docker
-      shell: |
-        if ! command -v "docker version" &> /dev/null
-        then
-          curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
-        fi
+      shell: curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
+      when: docker_valid.failed
 
     - name: Install docker-compose
       shell: |
