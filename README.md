@@ -16,8 +16,8 @@ docker-compose up -d --build --remove-orphans
 
 Credits:
 - Jeff Geerling: Ansible for DevOps
-- https://www.cloudbees.com/blog/how-to-kill-all-containers-in-docker
 - https://stackoverflow.com/a/70927289
+- https://stackoverflow.com/a/44364288
 
 ## Project members
 

@@ -31,6 +31,7 @@
       shell: |
         docker ps -q --filter "name=tastylabs" | grep -q . && docker stop tastylabs && docker rm -fv tastylabs
         docker ps -q --filter "name=proxy" | grep -q . && docker stop proxy && docker rm -fv proxy
+      ignore_errors: yes
 
     - name: Delete old app files
       file:
