@@ -11,7 +11,11 @@
         state: present
 
     - name: Install Docker
-      shell: curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
+      shell: |
+        if ! command -v docker version &> /dev/null
+        then
+          curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
+        fi
 
     - name: Install docker-compose
       shell: |
