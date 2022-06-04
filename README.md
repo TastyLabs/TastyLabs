@@ -27,4 +27,4 @@ Credits:
 - [@tsukasaXkawaii](https://www.github.com/tsukasaXkawaii)
 
 ## Supervisor
-- []()
+- [@wi47mowy](wi47mowy)
