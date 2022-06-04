@@ -6,8 +6,20 @@
     - name: Install Docker
       shell:  curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
 
+    - name: Start Docker
+      shell: service docker start
+
     - name: Stop running containers
-      shell: docker kill $(docker ps -q) || docker rm $(docker ps -a -q)
+      shell: |
+        containers=$(docker ps -q)
+        if [ ! -z $containers ]; then
+          docker kill $containers;
+        fi
+        
+        containers=$(docker ps -a -q)
+        if [ ! -z $containers ]; then
+          docker rm $containers;
+        fi
 
     - name: Delete old app files
       file:
