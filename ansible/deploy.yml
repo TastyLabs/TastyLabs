@@ -35,8 +35,9 @@
       ignore_errors: yes
 
     - name: Delete old app files
-      shell: rm -rf /app
-      ignore_errors: yes
+      file:
+        state: absent
+        path: /app
 
     - name: Clone repository
       git:
