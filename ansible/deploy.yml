@@ -1,0 +1,48 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: no
+
+  tasks:
+    - name: Install required packages
+      apt:
+        name:
+          - git
+          - curl
+        state: present
+
+    - name: Check if Docker is installed
+      command: docker --version
+      register: docker_valid
+      ignore_errors: yes
+
+    - name: Install Docker
+      shell: curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
+      when: docker_valid.failed
+
+    - name: Install docker-compose
+      shell: |
+        curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        chmod +x /usr/local/bin/docker-compose
+
+    - name: Start Docker
+      shell: service docker start
+
+    - name: Stop running containers
+      shell: |
+        docker ps -q --filter "name=tastylabs" | grep -q . && docker stop tastylabs && docker rm -fv tastylabs
+        docker ps -q --filter "name=proxy" | grep -q . && docker stop proxy && docker rm -fv proxy
+      ignore_errors: yes
+
+    - name: Delete old app files
+      file:
+        state: absent
+        path: /app
+
+    - name: Clone repository
+      git:
+        repo: https://github.com/TastyLabs/TastyLabs
+        dest: /app
+
+    - name: Start application
+      shell: cd /app && docker-compose up -d --build --remove-orphans
