@@ -4,6 +4,9 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
+  schedule:
+    # Triggers the deployment every Monday at 2:30 a.m.
+    - cron: '30 2 * * 1'
 jobs:
   deploy:
     runs-on: ubuntu-latest
