@@ -1,4 +1,4 @@
-package io.github.tastylabs.TastyLabs;
+package de.tastylabs;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
