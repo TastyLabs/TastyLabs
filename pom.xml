@@ -8,7 +8,7 @@
 		<version>2.7.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>io.github.tastylabs</groupId>
+	<groupId>de.tastylabs</groupId>
 	<artifactId>TastyLabs</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>TastyLabs</name>
