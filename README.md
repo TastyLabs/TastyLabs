@@ -14,10 +14,11 @@ The service can be reached at [tastylabs.de](https://tastylabs.de).
 docker-compose up -d --build --remove-orphans
 ```
 
-Credits:
+## Credits
 - Jeff Geerling: Ansible for DevOps
 - https://stackoverflow.com/a/70927289
 - https://stackoverflow.com/a/44364288
+
 
 ## Project members
 
