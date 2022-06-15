@@ -1,65 +1,75 @@
 * {
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
-    font-family: monospace;
-    font-size: x-large;
-    color: black;
 }
 
-.title {
-    padding:15px;
-    height: 175px;
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+header {
     display: flex;
+    width: 100%;
+    height: 10vh;
+    margin: auto;
+    align-items: center;
+    border-bottom: 5px solid black;
+}
+
+.logo-container,
+.nav-links,
+.cart {
+    display: flex;
+}
+
+.logo-container {
+    flex: 1;
+}
+.logo {
+    font-weight: 400;
+    margin: 5px;
+}
+nav {
+    flex: 4;
+}
+.nav-links {
+    justify-content: space-around;
+    list-style: none;
+}
+.nav-link {
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+}
+.cart{
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.logo-container img {
+    width: auto;
+    height: auto;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    margin: auto;
     align-items: center;
 }
-
-.title img {
-    float: left;
-    vertical-align: middle;
-}
-
-.title span {
-    vertical-align: middle;
-}
-
-.title h1 {
-    font-size: xxx-large;
-}
-
-.menu {
-    float: left;
-    width: 20%;
-    text-align: center;
-}
-
-.menu a {
-    background-color: rgba(234, 163, 8, 0.98);
-    padding: 8px;
-    margin-top: 7px;
-    display: block;
-    width: 100%;
+.text {
+    width: 90%;
+    margin: auto;
+    align-items: center;
     color: black;
 }
 
-.main {
-    float: left;
-    width: 60%;
-    padding: 0 20px;
+img.resize {
+    max-width:10vh;
+    max-height:10vh;
 }
 
-.main h2 {
-    font-size: xx-large;
-}
-
-.footer {
-    background-color: rgba(234, 163, 8, 0.98);
-    text-align:center;
-    padding:10px;
-    margin-top:7px;
-}
-
-@media only screen and (max-width: 620px) {
-    /* For mobile phones: */
-    .menu, .main, .right {
-        width: 100%;
-    }
+li {
+    list-style: none;
 }
