@@ -27,4 +27,4 @@ docker-compose up -d --build --remove-orphans
 - [@tsukasaXkawaii](https://www.github.com/tsukasaXkawaii)
 
 ## Supervisor
-- [@wi47mowy](wi47mowy)
+- [@wi47mowy](https://www.github.com/wi47mowy)
