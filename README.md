@@ -7,13 +7,17 @@ TastyLabs is a community-driven open source recipe sharing platform.
 
 TastyLabs is developed by a group of students as part of their computer science classes.
 
+The service can be reached at [tastylabs.de](https://tastylabs.de).
+
 ## Quick start
 ```shell
 docker-compose up -d --build --remove-orphans
 ```
 
 ## Credits
-- https://www.w3schools.com/html/html_responsive.asp
+- Jeff Geerling: Ansible for DevOps
+- https://stackoverflow.com/a/70927289
+- https://stackoverflow.com/a/44364288
 
 ## Project members
 
@@ -22,3 +26,5 @@ docker-compose up -d --build --remove-orphans
 - [@kuritika](https://www.github.com/kuritika)
 - [@tsukasaXkawaii](https://www.github.com/tsukasaXkawaii)
 
+## Supervisor
+- [@wi47mowy](wi47mowy)
