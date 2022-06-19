@@ -12,7 +12,7 @@
 	<artifactId>TastyLabs</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>TastyLabs</name>
-	<description>A Community Driven Software for Sharing Recipes</description>
+	<description>A Private School Project</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
