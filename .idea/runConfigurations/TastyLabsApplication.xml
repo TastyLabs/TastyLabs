@@ -2,7 +2,7 @@
   <configuration default="false" name="TastyLabsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <option name="ACTIVE_PROFILES" />
     <module name="TastyLabs" />
-    <option name="SPRING_BOOT_MAIN_CLASS" value="io.github.tastylabs.TastyLabs.TastyLabsApplication" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="de.tastylabs.TastyLabsApplication" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

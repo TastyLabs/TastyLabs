@@ -5,7 +5,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <link rel='stylesheet' href='/style.css'>
-    <title>Search | tastylabs.de</title>
+    <title>Recipes | tastylabs.de</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body>
@@ -24,15 +24,11 @@
 <main>
     <div class="text">
 
-        <form action="/search" method="post">
-            <p>
-                <label for="q">Search: </label>
-                <input type="text" name="q" id="q">
-            </p>
-            <p>
-                <input type="submit" id="submit" name="submit" value="Search!" class="button">
-            </p>
-        </form>
+        <p th:if="${recipes.empty}">No recipes available.</p>
+        <p th:text="${recipes.size()} + ' recipes found.'"></p>
+        <ul th:each="recipe : ${recipes}">
+            <li><a th:href="@{/recipe/{id}(id=${recipe.id})}" th:text="${#strings.abbreviate(recipe.title,25)}">Title</a></li>
+        </ul>
 
         <p style="text-align: center;" >
             Made with <span style="color: tomato">♥</span> by 0xMuffinbaker, bensofficial, kuritika, tsukasaXkawaii

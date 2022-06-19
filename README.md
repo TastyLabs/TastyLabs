@@ -19,7 +19,6 @@ docker-compose up -d --build --remove-orphans
 - https://stackoverflow.com/a/70927289
 - https://stackoverflow.com/a/44364288
 
-
 ## Project members
 
 - [@0xMuffinbaker](https://www.github.com/0xMuffinbaker)
@@ -28,4 +27,4 @@ docker-compose up -d --build --remove-orphans
 - [@tsukasaXkawaii](https://www.github.com/tsukasaXkawaii)
 
 ## Supervisor
-- [@wi47mowy](wi47mowy)
+- [@wi47mowy](https://www.github.com/wi47mowy)
