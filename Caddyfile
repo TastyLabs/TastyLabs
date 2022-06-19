@@ -1,3 +1,8 @@
 localhost, tastylabs.de, www.tastylabs.de {
     reverse_proxy tastylabs:8080
+    
+    basicauth /* {
+        TastyLabs 
+	    Bob JDJhJDE0JG1hZzNXaUlQeVdXUC5TZ05jem4vUE9mUnJPNExoWTBTd0lXeEpUc0ZJeFZYUnR3aGZ5Lkh1
+    }
 }
