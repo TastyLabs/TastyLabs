@@ -3,11 +3,7 @@
 
 # TastyLabs
 
-TastyLabs is a community-driven open source recipe sharing platform.
-
-TastyLabs is developed by a group of students as part of their computer science classes.
-
-The service can be reached at [tastylabs.de](https://tastylabs.de).
+TastyLabs is a private school project and developed by a group of students as part of their computer science classes.
 
 ## Quick start
 ```shell
