@@ -24,10 +24,11 @@
 <main>
     <div class="text">
 
-        <p th:text="${recipe.title}"></p>
-        <p th:text="${recipe.ingredients}"></p>
-        <p th:text="${recipe.preparation}"></p>
-
+        <h1 th:text="${recipe.title}"></h1>
+        <h2>Ingredients</h2>
+        <p th:text="${recipe.ingredients}" class="detail-text"></p>
+        <h2>Preparation</h2>
+        <p th:text="${recipe.preparation}" class="detail-text"></p>
         <p style="text-align: center;" >
             Made with <span style="color: tomato">♥</span> by 0xMuffinbaker, bensofficial, kuritika, tsukasaXkawaii
         </p>

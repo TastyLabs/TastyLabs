@@ -42,10 +42,6 @@ nav {
     font-size: 18px;
     text-decoration: none;
 }
-.cart{
-    flex: 1;
-    justify-content: flex-end;
-}
 
 .logo-container img {
     width: auto;
@@ -72,4 +68,8 @@ img.resize {
 
 li {
     list-style: none;
+}
+
+.detail-text {
+    white-space: pre-line;
 }
