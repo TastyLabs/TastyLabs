@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.tastylabs.de/development/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.tastylabs.de/installation/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
