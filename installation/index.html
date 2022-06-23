@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://docs.tastylabs.de/installation/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Installation - TastyLabs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Installation";
+        var mkdocs_page_input_path = "installation.md";
+        var mkdocs_page_url = "/installation/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> TastyLabs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">TastyLabs</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Installation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick start</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deployment-with-docker">Deployment with Docker</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deployment-without-docker">Deployment without Docker</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tastylabs">TastyLabs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#caddy-reverse-proxy">Caddy Reverse Proxy</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deletion-of-the-database">Deletion of the database</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">TastyLabs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Installation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="installation">Installation</h1>
+<pre class="mermaid"><code>  graph LR;
+      subgraph caddy-docker[Docker-Container]
+        caddy[Caddy]
+      end
+
+      subgraph spring-docker[Docker-Container]
+        spring[Spring]
+        db[H2 Database]
+      end
+
+      caddy --&gt; |/| spring
+      spring --&gt; db</code></pre>
+<h2 id="quick-start">Quick start</h2>
+<p>We provide a <code>docker-compose.yml</code> file for quick and easy setup.</p>
+<div class="highlight"><pre><span></span><code>docker-compose up -d --build --remove-orphans
+</code></pre></div>
+<p>The service should be available at <a href="">https://localhost</a>.</p>
+<h2 id="deployment-with-docker">Deployment with Docker</h2>
+<ol>
+<li>Before deploying to a remote server, please adapt the <code>docker-compose.yml</code>, <code>Caddyfile</code> (URL of the server for the HTTPS certificate) as well as the <code>src/main/resources/application.yml</code> files for your needs.</li>
+<li>If you use the Ansible playbook provided in the <code>ansible</code> directory to deploy the Docker stack to your server, please also adapt the <code>ansible/hosts.ini</code> (IP of the server) and <code>ansible/deploy.yml</code> (Since you have made some changes, it is not possible to clone the repository. Therefore, please transfer your code to the server in another way.).</li>
+</ol>
+<h2 id="deployment-without-docker">Deployment without Docker</h2>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li>Linux server</li>
+<li>Java 11</li>
+<li>Maven</li>
+</ul>
+<h3 id="tastylabs">TastyLabs</h3>
+<ol>
+<li>Create the folder for the application: <code>mkdir /opt/tastylabs &amp;&amp; cd /opt/tastylabs</code></li>
+<li>Clone the source code: <code>git clone https://github.com/TastyLabs/TastyLabs.git /opt/tastylabs</code></li>
+<li>Adapt the <code>src/main/resources/application.yml</code> file for your needs.</li>
+<li>Build the Spring Boot application: <code>mvn package</code></li>
+<li>Copy the <code>.jar</code> file to the current directory: <code>cp ./target/*.jar ./app.jar</code></li>
+<li>Start the application with <code>java -jar app.jar</code></li>
+</ol>
+<p><em>Note: You may want to start the <code>.jar</code> file as a service.</em></p>
+<h3 id="caddy-reverse-proxy">Caddy Reverse Proxy</h3>
+<ol>
+<li>Adapt the <code>Caddyfile</code> file for your needs.</li>
+<li>Install Caddy according to their <a href="https://caddyserver.com/docs/install">docs</a>.</li>
+<li>Copy the <code>Caddyfile</code> to the right location: <code>cp Caddyfile /etc/caddy/Caddyfile</code></li>
+<li>Restart Caddy.</li>
+</ol>
+<h2 id="deletion-of-the-database">Deletion of the database</h2>
+<p>If you want to delete <strong>all</strong> stored recipes, delete the <code>database.*.db</code> files.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="TastyLabs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
