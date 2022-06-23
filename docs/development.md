@@ -13,4 +13,4 @@ The recipes are stored in an H2 Database, creating some files for persistent dat
 If you want to reset the database, delete all `database.*.db` files.
 
 ## Docker and Command line
-For setup with Docker or the command line, please refer to the [installation documentation](/install).
+For setup with Docker or the command line, please refer to the [installation documentation](/installation).
