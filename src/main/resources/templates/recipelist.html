@@ -1,8 +1,0 @@
-<html>
-<body>
-<p th:if="${recipes.empty}">No recipes available.</p>
-<ul th:each="recipe : ${recipes}">
-    <li><a th:href="@{/recipe/{id}(id=${recipe.id})}" th:text="${#strings.abbreviate(recipe.title,25)}">Title</a></li>
-</ul>
-</body>
-</html>

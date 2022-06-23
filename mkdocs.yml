@@ -1,3 +1,9 @@
 site_name: TastyLabs
 site_url: https://docs.tastylabs.de
 theme: readthedocs
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
