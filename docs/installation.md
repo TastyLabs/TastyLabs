@@ -1,20 +1,5 @@
 # Installation
 
-```mermaid
-  graph LR;
-      subgraph caddy-docker[Docker-Container]
-        caddy[Caddy]
-      end
-      
-      subgraph spring-docker[Docker-Container]
-        spring[Spring]
-        db[H2 Database]
-      end
-  
-      caddy --> |/| spring
-      spring --> db
-```
-
 ## Quick start
 
 We provide a `docker-compose.yml` file for quick and easy setup.
