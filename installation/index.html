@@ -90,22 +90,10 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="installation">Installation</h1>
-<pre class="mermaid"><code>  graph LR;
-      subgraph caddy-docker[Docker-Container]
-        caddy[Caddy]
-      end
-
-      subgraph spring-docker[Docker-Container]
-        spring[Spring]
-        db[H2 Database]
-      end
-
-      caddy --&gt; |/| spring
-      spring --&gt; db</code></pre>
 <h2 id="quick-start">Quick start</h2>
 <p>We provide a <code>docker-compose.yml</code> file for quick and easy setup.</p>
-<div class="highlight"><pre><span></span><code>docker-compose up -d --build --remove-orphans
-</code></pre></div>
+<pre><code class="language-shell">docker-compose up -d --build --remove-orphans
+</code></pre>
 <p>The service should be available at <a href="">https://localhost</a>.</p>
 <h2 id="deployment-with-docker">Deployment with Docker</h2>
 <ol>
