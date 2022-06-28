@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class RecipeStoringService {
@@ -26,26 +27,41 @@ public class RecipeStoringService {
 
     public Recipe get(String id) throws RecipeNotFoundException {
         LOGGER.debug("Searching for recipe with id {}", id);
+        return recipeRepository.findById(id).orElseThrow(() -> new RecipeNotFoundException("No recipe found with id " + id));
         // TODO: Load the recipe with the id from the list.
-        return new Recipe("Unsupported action", "", "", "");
+//        return null;
     }
 
     public List<Recipe> search(String query) {
         LOGGER.debug("Searching for recipes matching with '" + query + "'");
+        String[] words = query.split(" ");
+        List<Recipe> result = new LinkedList<>();
+        List<Recipe> recipes = recipeRepository.findAll();
+        for (String word : words) {
+            for (Recipe recipe : recipes) {
+                if (recipe.getId().contains(word) || recipe.getTitle().contains(word) || recipe.getIngredients().contains(word) || recipe.getPreparation().contains(word)) {
+                    result.add(recipe);
+                }
+            }
+        }
+        result = result.stream().distinct().collect(Collectors.toList());
+        return result;
         // TODO: Return a list of recipes which match the query
-        return new LinkedList<>();
+//        return null;
     }
 
     public List<Recipe> getSuggestions() {
         LOGGER.debug("Getting suggestions");
+        return recipeRepository.findAll();
         // TODO: Return a list of some random recipes.
-        return new LinkedList<>();
+//        return null;
     }
 
     public Recipe add(Recipe recipe) throws InvalidRecipeException {
         LOGGER.debug("Adding new recipe with the title " + recipe.getTitle());
         // TODO: Check the recipe contains no illegal words.
-        // TODO: Add recipeRepository.save(recipe); when the check is implemented
+        recipeRepository.save(recipe);
+        System.out.println(recipeRepository.findAll());
         // TODO: Add the recipe to the list.
         return recipe;
     }
