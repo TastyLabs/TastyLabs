@@ -11,6 +11,8 @@ public class Node extends ListElement{
 
     public Node(ListElement next, Recipe recipe) {
         // TODO: Initialise the class variables
+        next = newNext;
+        Recipe = newRecipe;
         // Since the parameters and the class attributes have the same name, you have to use this for accessing the class attributes
         // e.g.: this.attribute = attribute;
     }
@@ -18,6 +20,10 @@ public class Node extends ListElement{
     @Override
     List<Recipe> search(List<String> query) {
         // TODO: Find all recipes containing any of the query words
+        if(Recipe=query){
+            System.out.println()
+        }
+
         List<Recipe> result;
         // First, get the result of the search on the next element. (result = ...)
         // Then, check for each word in the query, if either the id, the title, the ingredients or the preparation contain this word. The logical or is in Java || . If so, add it to the result list.
