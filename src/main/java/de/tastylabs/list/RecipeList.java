@@ -10,15 +10,21 @@ public class RecipeList {
 
     public RecipeList() {
         // TODO: Initialise the first attribute
+      ListElement = newListelement;
     }
 
     public void add(Recipe recipe) {
         // TODO: Add new recipe to the list
+        recipe = new Recipe
+
+        Recipe.add(recipe);
+        
     }
 
     public List<Recipe> search(List<String> query) {
         // TODO: Return the result of the method call on the first list element
-        return null;
+        get ListElement;
+        return;
     }
 
     public Recipe get(String id) throws RecipeNotFoundException {
@@ -32,6 +38,7 @@ public class RecipeList {
             throw new IndexOutOfBoundsException();
         } else {
             // TODO: Return the result of the method call on the first list element
+
             return null;
         }
     }
