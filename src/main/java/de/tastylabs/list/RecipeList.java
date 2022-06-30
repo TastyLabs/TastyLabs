@@ -9,16 +9,11 @@ public class RecipeList {
     ListElement first;
 
     public RecipeList() {
-        // TODO: Initialise the first attribute
-      ListElement = newListelement;
+        first = new Completion();
     }
 
     public void add(Recipe recipe) {
-        // TODO: Add new recipe to the list
-        recipe = new Recipe
-
-        Recipe.add(recipe);
-        
+        first = new Node(first, recipe);
     }
 
     public List<Recipe> search(List<String> query) {

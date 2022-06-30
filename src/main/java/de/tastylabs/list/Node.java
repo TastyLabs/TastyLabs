@@ -12,7 +12,7 @@ public class Node extends ListElement{
     public Node(ListElement next, Recipe recipe) {
         // TODO: Initialise the class variables
         this.next = next;
-        Recipe = newRecipe;
+        this.recipe = recipe;
         // Since the parameters and the class attributes have the same name, you have to use this for accessing the class attributes
         // e.g.: this.attribute = attribute;
     }
@@ -20,16 +20,12 @@ public class Node extends ListElement{
     @Override
     List<Recipe> search(List<String> query) {
         // TODO: Find all recipes containing any of the query words
-        if(Recipe=query){
-            System.out.println()
-        }
-
-        List<Recipe> result;
+        List<Recipe> result = next.search(query);
         // First, get the result of the search on the next element. (result = ...)
         // Then, check for each word in the query, if either the id, the title, the ingredients or the preparation contain this word. The logical or is in Java || . If so, add it to the result list.
         for (String word : query) {
-            if (true /* expression here */ ) {
-                // Add the recipe to the result. Use the add method of the result list.
+            if (recipe.getId().contains(word) || recipe.getTitle().contains(word) || recipe.getIngredients().contains(word) || recipe.getPreparation().contains(word)) {
+                result.add(recipe);
             }
         }
         return result;
@@ -41,10 +37,10 @@ public class Node extends ListElement{
         // Check if the id of the recipe equals (!) the id of the parameter
         // To test if a string is equal to another, please use the equals method.
         // If the recipe has not the equal id, return the result of the method call on the next list element
-        if (true /* expression here */ ) {
-            return null;
+        if (recipe.getId().equals(id)) {
+            return recipe;
         } else {
-            return null;
+            return next.get(id);
         }
     }
 
@@ -53,10 +49,10 @@ public class Node extends ListElement{
         // TODO: Find the recipe with this index
         // Return the recipe if the index is 0
         // Otherwise, return the result of the method call on the next list element, whereby the index is reduced by 1
-        if (true /* expression here */ ) {
-            return null;
+        if (index == 0) {
+            return recipe;
         } else {
-            return null;
+            return next.get(index -1);
         }
     }
 
@@ -64,6 +60,6 @@ public class Node extends ListElement{
     int size() {
         // TODO: Return the size of the list
         // This is always the size of the following element plus 1
-        return 0;
+        return next.size() + 1;
     }
 }
