@@ -11,7 +11,7 @@ public class Node extends ListElement{
 
     public Node(ListElement next, Recipe recipe) {
         // TODO: Initialise the class variables
-        next = newNext;
+        this.next = next;
         Recipe = newRecipe;
         // Since the parameters and the class attributes have the same name, you have to use this for accessing the class attributes
         // e.g.: this.attribute = attribute;
