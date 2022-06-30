@@ -24,8 +24,14 @@ public class Node extends ListElement{
         // First, get the result of the search on the next element. (result = ...)
         // Then, check for each word in the query, if either the id, the title, the ingredients or the preparation contain this word. The logical or is in Java || . If so, add it to the result list.
         for (String word : query) {
+<<<<<<< HEAD
+            if (true /* expression here */ ) {
+                // Add the recipe to the result. Use the add method of the result list.
+                recipe.add 
+=======
             if (recipe.getId().contains(word) || recipe.getTitle().contains(word) || recipe.getIngredients().contains(word) || recipe.getPreparation().contains(word)) {
                 result.add(recipe);
+>>>>>>> f99aa372856e1713509a54c8aa2a20e7e17d968a
             }
         }
         return result;
@@ -49,16 +55,26 @@ public class Node extends ListElement{
         // TODO: Find the recipe with this index
         // Return the recipe if the index is 0
         // Otherwise, return the result of the method call on the next list element, whereby the index is reduced by 1
+<<<<<<< HEAD
+        if (index == 0 ) {
+            return recipe;
+=======
         if (index == 0) {
             return recipe;
+>>>>>>> f99aa372856e1713509a54c8aa2a20e7e17d968a
         } else {
+<<<<<<< HEAD
+            return next.get(index-1);
+=======
             return next.get(index -1);
+>>>>>>> f99aa372856e1713509a54c8aa2a20e7e17d968a
         }
     }
 
     @Override
     int size() {
         // TODO: Return the size of the list
+
         // This is always the size of the following element plus 1
         return next.size() + 1;
     }
