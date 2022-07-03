@@ -6,6 +6,6 @@ localhost, tastylabs.de, www.tastylabs.de {
     }
 
     basicauth /h2-console/* {
-            TastyLabsAdmin JDJhJDE0JE5YdVp4cVFlc29pdUZicmt6a0VLOU96eHBNajFHdmdvNE8zSDZpRy9razl6MkRDTnUwc1FP
+            TastyLabsAdmin JDJhJDE0JDM2Y3RNNzF6ZEtFdmMzWDV3NXM2OGU2TC96NzZ5N0RTS20vaWpuLmtzM2RWMEl1MGE5UUdT
     }
 }
