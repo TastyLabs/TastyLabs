@@ -14,6 +14,7 @@ docker-compose up -d --build --remove-orphans
 - Jeff Geerling: Ansible for DevOps
 - https://stackoverflow.com/a/70927289
 - https://stackoverflow.com/a/44364288
+- https://stackoverflow.com/a/2255438
 - https://medienstudio.net/development-en/documentation-in-github-pages-with-mkdocs-readthedocs-theme/
 
 ## Project members
