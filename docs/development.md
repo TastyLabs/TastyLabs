@@ -10,7 +10,7 @@ For starting the application, use the predefined run configuration on the top ri
 After compilation and startup the server should be available on [http://localhost:8080](http://localhost:8080).
 
 The recipes are stored in an H2 Database, creating some files for persistent data storage.
-If you want to reset the database, delete all `database.*.db` files.
+If you want to reset the database, delete all `data/database.*.db` files.
 
 ## Docker and Command line
 For setup with Docker or the command line, please refer to the [installation documentation](/installation).

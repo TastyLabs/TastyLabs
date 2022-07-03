@@ -38,4 +38,4 @@ _Note: You may want to start the `.jar` file as a service._
 4. Restart Caddy.
 
 ## Deletion of the database
-If you want to delete **all** stored recipes, delete the `database.*.db` files.
+If you want to delete **all** stored recipes, delete the `data/database.*.db` files.
