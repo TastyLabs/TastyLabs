@@ -3,6 +3,8 @@ services:
   tastylabs:
     build: .
     container_name: tastylabs
+    volumes:
+      - tastylabs-db:/app/database.mv.db
     restart: unless-stopped
   proxy:
     image: caddy:2-alpine
@@ -15,3 +17,6 @@ services:
     depends_on:
       - tastylabs
     restart: unless-stopped
+
+volumes:
+  tastylabs-db:
