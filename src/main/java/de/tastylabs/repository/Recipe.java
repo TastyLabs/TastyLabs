@@ -3,6 +3,7 @@ package de.tastylabs.repository;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,8 +18,10 @@ public class Recipe {
 
     private String title;
 
+    @Column(columnDefinition = "CLOB")
     private String ingredients;
 
+    @Column(columnDefinition = "CLOB")
     private String preparation;
 
     private LocalDateTime uploadedAt;
