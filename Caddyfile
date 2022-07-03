@@ -4,4 +4,8 @@ localhost, tastylabs.de, www.tastylabs.de {
     basicauth /* {
         TastyLabs JDJhJDE0JG1hZzNXaUlQeVdXUC5TZ05jem4vUE9mUnJPNExoWTBTd0lXeEpUc0ZJeFZYUnR3aGZ5Lkh1
     }
+
+    basicauth /h2-console/* {
+            TastyLabsAdmin JDJhJDE0JE5YdVp4cVFlc29pdUZicmt6a0VLOU96eHBNajFHdmdvNE8zSDZpRy9razl6MkRDTnUwc1FP
+    }
 }
