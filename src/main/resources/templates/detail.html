@@ -7,11 +7,12 @@
     <link rel='stylesheet' href='/style.css'>
     <title>Recipe | tastylabs.de</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <script src="/print.js"></script>
 </head>
 <body>
 <header>
     <div class="logo-container">
-        <a href="/"><img class="resize" src="https://cdn.discordapp.com/attachments/977252981294653450/977476752043548712/TastyLabs_.png" alt="Logo TastyLabs"></a>
+        <a href="/"><img class="resize" src="/logo.png" alt="Logo TastyLabs"></a>
     </div>
     <nav>
         <ul class="nav-links">
@@ -23,12 +24,14 @@
 </header>
 <main>
     <div class="text">
-
-        <h1 th:text="${recipe.title}"></h1>
-        <h2>Ingredients</h2>
-        <p th:text="${recipe.ingredients}" class="detail-text"></p>
-        <h2>Preparation</h2>
-        <p th:text="${recipe.preparation}" class="detail-text"></p>
+        <button onclick="print()">Print Recipe</button>
+        <div id="recipe">
+            <h1 th:text="${recipe.title}"></h1>
+            <h2>Ingredients</h2>
+            <p th:text="${recipe.ingredients}" class="detail-text"></p>
+            <h2>Preparation</h2>
+            <p th:text="${recipe.preparation}" class="detail-text"></p>
+        </div>
         <p style="text-align: center;" >
             Made with <span style="color: tomato">♥</span> by 0xMuffinbaker, bensofficial, kuritika, tsukasaXkawaii
         </p>
