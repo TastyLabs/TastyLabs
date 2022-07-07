@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,52 +18,43 @@ import java.util.stream.Collectors;
 public class RecipeStoringService {
     private static final Logger LOGGER = LoggerFactory.getLogger(RecipeStoringService.class);
     private final RecipeRepository recipeRepository;
-    private final RecipeList list;
+    private final RecipeList recipeList;
 
     public RecipeStoringService(RecipeRepository recipeRepository) {
         this.recipeRepository = recipeRepository;
-        this.list = new RecipeList();
-        // Initialise the list with the DB data
+        this.recipeList = new RecipeList();
+
+        LOGGER.debug("Loading recipes from DB into list");
+        List<Recipe> recipes = recipeRepository.findAll();
+        for(Recipe recipe : recipes) {
+            recipeList.add(recipe);
+        }
+        LOGGER.debug("Done!");
     }
 
     public Recipe get(String id) throws RecipeNotFoundException {
         LOGGER.debug("Searching for recipe with id {}", id);
-        return recipeRepository.findById(id).orElseThrow(() -> new RecipeNotFoundException("No recipe found with id " + id));
-        // TODO: Load the recipe with the id from the list.
-//        return null;
+        return recipeList.get(id);
     }
 
     public List<Recipe> search(String query) {
         LOGGER.debug("Searching for recipes matching with '" + query + "'");
-        String[] words = query.split(" ");
-        List<Recipe> result = new LinkedList<>();
-        List<Recipe> recipes = recipeRepository.findAll();
-        for (String word : words) {
-            for (Recipe recipe : recipes) {
-                if (recipe.getId().contains(word) || recipe.getTitle().contains(word) || recipe.getIngredients().contains(word) || recipe.getPreparation().contains(word)) {
-                    result.add(recipe);
-                }
-            }
-        }
-        result = result.stream().distinct().collect(Collectors.toList());
-        return result;
-        // TODO: Return a list of recipes which match the query
-//        return null;
+        return recipeList.search(Arrays.asList(query.split(" ")));
     }
 
     public List<Recipe> getSuggestions() {
         LOGGER.debug("Getting suggestions");
-        return recipeRepository.findAll();
-        // TODO: Return a list of some random recipes.
-//        return null;
+        List<Recipe> result = new LinkedList<>();
+        for (int i = 0; i < 25; i++) {
+            result.add(recipeList.getRandom());
+        }
+        return result.stream().distinct().collect(Collectors.toList());
     }
 
     public Recipe add(Recipe recipe) throws InvalidRecipeException {
         LOGGER.debug("Adding new recipe with the title " + recipe.getTitle());
-        // TODO: Check the recipe contains no illegal words.
         recipeRepository.save(recipe);
-        System.out.println(recipeRepository.findAll());
-        // TODO: Add the recipe to the list.
+        recipeList.add(recipe);
         return recipe;
     }
 }
