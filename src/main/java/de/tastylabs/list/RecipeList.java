@@ -17,37 +17,26 @@ public class RecipeList {
     }
 
     public List<Recipe> search(List<String> query) {
-        // TODO: Return the result of the method call on the first list element
-        get ListElement;
-        return;
+        return first.search(query);
     }
 
     public Recipe get(String id) throws RecipeNotFoundException {
-        // TODO: Return the result of the method call on the first list element
-        return null;
+        return first.get(id);
     }
 
     public Recipe get(int index) {
-        // TODO: First check, if the index is greater then or equal to the list size
-        if (true) {
+        if (index >= size()) {
             throw new IndexOutOfBoundsException();
         } else {
-            // TODO: Return the result of the method call on the first list element
-
-            return null;
+            return first.get(index);
         }
     }
 
     public Recipe getRandom() {
-        // TODO: Return a random recipe
-        // Tip: To get a random index use: (int) (Math.random() * size())
-        // Math.random() will generate a random number between 0 and 1, which is multiplied with the size a random index.
-        // (int) means, that the double is then casted to a int value.
-        return null;
+        return get((int) (Math.random() * size()));
     }
 
     public int size() {
-        // TODO: Return the result of the method call on the first list element
-        return 0;
+        return first.size();
     }
 }

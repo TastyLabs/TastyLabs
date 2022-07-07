@@ -23,6 +23,13 @@ public class RecipeStoringService {
     public RecipeStoringService(RecipeRepository recipeRepository) {
         this.recipeRepository = recipeRepository;
         this.recipeList = new RecipeList();
+
+        LOGGER.debug("Loading recipes from DB into list");
+        List<Recipe> recipes = recipeRepository.findAll();
+        for(Recipe recipe : recipes) {
+            recipeList.add(recipe);
+        }
+        LOGGER.debug("Done!");
     }
 
     public Recipe get(String id) throws RecipeNotFoundException {
@@ -46,6 +53,7 @@ public class RecipeStoringService {
 
     public Recipe add(Recipe recipe) throws InvalidRecipeException {
         LOGGER.debug("Adding new recipe with the title " + recipe.getTitle());
+        recipeRepository.save(recipe);
         recipeList.add(recipe);
         return recipe;
     }
