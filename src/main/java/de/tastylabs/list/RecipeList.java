@@ -1,6 +1,6 @@
 package de.tastylabs.list;
 
-import de.tastylabs.exception.RecipeNotFoundException;
+import de.tastylabs.exception.ElementNotFoundException;
 import de.tastylabs.repository.Recipe;
 
 import java.util.List;
@@ -12,19 +12,19 @@ public class RecipeList {
         first = new Completion();
     }
 
-    public void add(Recipe recipe) {
-        first = new Node(first, recipe);
+    public void add(DataElement element) {
+        first = new Node(first, element);
     }
 
-    public List<Recipe> search(List<String> query) {
+    public List<DataElement> search(List<String> query) {
         return first.search(query);
     }
 
-    public Recipe get(String id) throws RecipeNotFoundException {
+    public DataElement get(String id) throws ElementNotFoundException {
         return first.get(id);
     }
 
-    public Recipe get(int index) {
+    public DataElement get(int index) {
         if (index >= size()) {
             throw new IndexOutOfBoundsException();
         } else {
@@ -32,7 +32,7 @@ public class RecipeList {
         }
     }
 
-    public Recipe getRandom() {
+    public DataElement getRandom() {
         return get((int) (Math.random() * size()));
     }
 

@@ -1,6 +1,7 @@
 package de.tastylabs.repository;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import de.tastylabs.list.DataElement;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
@@ -10,7 +11,7 @@ import javax.persistence.Id;
 import java.time.LocalDateTime;
 
 @Entity
-public class Recipe {
+public class Recipe extends DataElement {
     @Id
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")

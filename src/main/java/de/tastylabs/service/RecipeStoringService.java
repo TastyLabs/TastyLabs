@@ -1,7 +1,8 @@
 package de.tastylabs.service;
 
 import de.tastylabs.exception.InvalidRecipeException;
-import de.tastylabs.exception.RecipeNotFoundException;
+import de.tastylabs.exception.ElementNotFoundException;
+import de.tastylabs.list.DataElement;
 import de.tastylabs.list.RecipeList;
 import de.tastylabs.repository.Recipe;
 import de.tastylabs.repository.RecipeRepository;
@@ -32,19 +33,19 @@ public class RecipeStoringService {
         LOGGER.debug("Done!");
     }
 
-    public Recipe get(String id) throws RecipeNotFoundException {
+    public DataElement get(String id) throws ElementNotFoundException {
         LOGGER.debug("Searching for recipe with id {}", id);
         return recipeList.get(id);
     }
 
-    public List<Recipe> search(String query) {
+    public List<DataElement> search(String query) {
         LOGGER.debug("Searching for recipes matching with '" + query + "'");
         return recipeList.search(Arrays.asList(query.split(" ")));
     }
 
-    public List<Recipe> getSuggestions() {
+    public List<DataElement> getSuggestions() {
         LOGGER.debug("Getting suggestions");
-        List<Recipe> result = new LinkedList<>();
+        List<DataElement> result = new LinkedList<>();
         for (int i = 0; i < 25; i++) {
             result.add(recipeList.getRandom());
         }

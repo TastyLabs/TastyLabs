@@ -1,17 +1,15 @@
 package de.tastylabs.list;
 
-import de.tastylabs.exception.RecipeNotFoundException;
-import de.tastylabs.repository.Recipe;
+import de.tastylabs.exception.ElementNotFoundException;
 
 import java.util.List;
-import java.util.Objects;
 
 public abstract class ListElement {
-    abstract List<Recipe> search(List<String> query);
+    abstract List<DataElement> search(List<String> query);
 
-    abstract Recipe get(String id) throws RecipeNotFoundException;
+    abstract DataElement get(String id) throws ElementNotFoundException;
 
-    abstract Recipe get(int index);
+    abstract DataElement get(int index);
 
     abstract int size();
 }

@@ -1,7 +1,7 @@
 package de.tastylabs.controller;
 
 import de.tastylabs.exception.InvalidRecipeException;
-import de.tastylabs.exception.RecipeNotFoundException;
+import de.tastylabs.exception.ElementNotFoundException;
 import de.tastylabs.repository.Recipe;
 import de.tastylabs.service.RecipeStoringService;
 import org.springframework.stereotype.Controller;
@@ -35,7 +35,7 @@ public class RecipeController {
     }
 
     @GetMapping("/recipe/{id}")
-    public String getRecipe(Model model, @PathVariable String id) throws RecipeNotFoundException {
+    public String getRecipe(Model model, @PathVariable String id) throws ElementNotFoundException {
         model.addAttribute("recipe", recipeStoringService.get(id));
         return "detail";
     }
