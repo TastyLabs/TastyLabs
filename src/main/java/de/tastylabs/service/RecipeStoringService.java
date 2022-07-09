@@ -40,7 +40,7 @@ public class RecipeStoringService {
 
     public List<DataElement> search(String query) {
         LOGGER.debug("Searching for recipes matching with '" + query + "'");
-        return recipeList.search(Arrays.asList(query.split(" ")));
+        return recipeList.search(Arrays.asList(query.toLowerCase().split(" ")));
     }
 
     public List<DataElement> getSuggestions() {
