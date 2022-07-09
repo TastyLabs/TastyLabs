@@ -46,8 +46,10 @@ public class RecipeStoringService {
     public List<DataElement> getSuggestions() {
         LOGGER.debug("Getting suggestions");
         List<DataElement> result = new LinkedList<>();
-        for (int i = 0; i < 25; i++) {
-            result.add(recipeList.getRandom());
+        if (recipeList.size() > 0) {
+            for (int i = 0; i < 25; i++) {
+                result.add(recipeList.getRandom());
+            }
         }
         return result.stream().distinct().collect(Collectors.toList());
     }
