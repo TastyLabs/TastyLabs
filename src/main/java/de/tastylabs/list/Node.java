@@ -18,7 +18,7 @@ public class Node extends ListElement{
     List<DataElement> search(List<String> query) {
         List<DataElement> result = next.search(query);
         for (String word : query) {
-            if (element.getId().contains(word) || element.getTitle().contains(word) || element.getIngredients().contains(word) || element.getPreparation().contains(word)) {
+            if (element.getId().toLowerCase().contains(word) || element.getTitle().toLowerCase().contains(word) || element.getIngredients().toLowerCase().contains(word) || element.getPreparation().toLowerCase().contains(word)) {
                 result.add(element);
             }
         }
